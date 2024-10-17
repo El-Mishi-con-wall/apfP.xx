@@ -83,9 +83,9 @@ public class frm13 extends JFrame {
 		double cateto1 = Double.parseDouble(txtcateto1.getText());
         double cateto2 = Double.parseDouble(txtcateto2.getText());
 
-		double hipotenusa = Math.sqrt(Math.pow(cateto1, 2) * Math.pow(cateto2, 2));
+		double hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2));
 
-		DecimalFormat df = new DecimalFormat("###.00");
+		DecimalFormat df = new DecimalFormat("###.##");
 		txthipotenusa.setText( df.format(hipotenusa));
 
 	} 
