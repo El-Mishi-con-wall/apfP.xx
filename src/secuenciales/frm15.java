@@ -109,8 +109,6 @@ public class frm15 extends JFrame {
 		int Daniel = Integer.parseInt( txtDaniel.getText());
 		int Danielsoles = Daniel * 3;
 
-		txtDaniel.setText(String.valueOf(Danielsoles));
-
 		int total = Juan + Rosa + Danielsoles;
 		double pJuan = Juan * 100.0 / total;
 		double pRosa = Rosa * 100.0 / total;
@@ -120,6 +118,7 @@ public class frm15 extends JFrame {
 		lblPJuan.setText( df.format( pJuan ) + " %" );
 		lblPRosa.setText( df.format( pRosa ) + " %" );
 		lblPDaniel.setText( df.format(pDaniel) + " %");
+		txtDaniel.setText(String.valueOf(Danielsoles));
 		txtTotal.setText(String.valueOf(total));
 	}
 
