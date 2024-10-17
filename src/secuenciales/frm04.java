@@ -83,8 +83,8 @@ public class frm04 extends JFrame {
 		double metros = Double.parseDouble(txtMetros.getText());
 
 		int Pies = (int) (metros * 3.2808);
-		double restoPies = (metros * 3.2808) - Pies;
-		int pulgadas = (int) (restoPies * 12);
+		double restaPies = (metros * 3.2808) - Pies;
+		int pulgadas = (int) (restaPies * 12);
 
 		txtPies.setText("" + Pies );
 		txtpulgadas.setText("" + pulgadas );
