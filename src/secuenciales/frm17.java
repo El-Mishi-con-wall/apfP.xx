@@ -4,9 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,37 +31,45 @@ public class frm17 extends JFrame {
 
 	public frm17() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 300, 300);
+		setBounds(0, 0, 300, 400);
 		setLayout(null);
 		setLocationRelativeTo(null);
 
-		JLabel lblJuan = new JLabel("Juan :");
-		lblJuan.setBounds(50, 50, 80, 30);
-		getContentPane().add(lblJuan);
+		JLabel lblDinero = new JLabel("Dinero");
+		lblDinero.setBounds(50, 50, 80, 30);
+		getContentPane().add(lblDinero);
 
-		JLabel lblRosa = new JLabel("Rosa :");
-		lblRosa.setBounds(50, 90, 80, 30);
-		getContentPane().add(lblRosa);
+		JLabel lblessalud = new JLabel("essalud");
+		lblessalud.setBounds(50, 90, 80, 30);
+		getContentPane().add(lblessalud);
 
-		JLabel lblDaniel = new JLabel("Daniel :");
-		lblDaniel.setBounds(50, 130, 80, 30);
-		getContentPane().add(lblDaniel);
+		JLabel lblcomedor = new JLabel("comedor");
+		lblcomedor.setBounds(50, 130, 80, 30);
+		getContentPane().add(lblcomedor);
 
-		JLabel lbltotal = new JLabel("total");
-		lbltotal.setBounds(50, 170, 80, 30);
-		getContentPane().add(lbltotal);
+		JLabel lblescuela = new JLabel("escuela");
+		lblescuela.setBounds(50, 170, 80, 30);
+		getContentPane().add(lblescuela);
 
-		lblPessalud = new JLabel("%");
-		lblPessalud.setBounds(200, 50, 120, 30);
+		JLabel lblasilo = new JLabel("asilo");
+		lblasilo.setBounds(50, 210, 80, 30);
+		getContentPane().add(lblasilo);
+
+		lblPessalud = new JLabel("25%");
+		lblPessalud.setBounds(200, 90, 120, 30);
 		getContentPane().add(lblPessalud);
 
-		lblPComedor = new JLabel("%");
-		lblPComedor.setBounds(200, 90, 80, 30);
+		lblPComedor = new JLabel("35%");
+		lblPComedor.setBounds(200, 130, 80, 30);
 		getContentPane().add(lblPComedor);
 
-		lblPEscuela = new JLabel("%");
-		lblPEscuela.setBounds(200, 130, 80, 30);
+		lblPEscuela = new JLabel("25%");
+		lblPEscuela.setBounds(200, 170, 80, 30);
 		getContentPane().add(lblPEscuela);
+
+		lblasilo = new JLabel("15%");
+		lblasilo.setBounds(200, 210, 80, 30);
+		getContentPane().add(lblasilo);
 
 		txtDinero = new JTextField();
 		txtDinero.setBounds( 130, 50, 60, 30);
@@ -74,12 +80,14 @@ public class frm17 extends JFrame {
 		txtessalud = new JTextField();
 		txtessalud.setBounds( 130, 90, 60, 30);
 		txtessalud.setHorizontalAlignment( SwingConstants.RIGHT );
+		txtessalud.setFocusable(false);
 		txtessalud.setMargin( new Insets(5, 5, 5, 5) );
 		getContentPane().add(txtessalud);
 
 		txtComedor = new JTextField();
 		txtComedor.setBounds( 130, 130, 60, 30);
 		txtComedor.setHorizontalAlignment( SwingConstants.RIGHT );
+		txtComedor.setFocusable(false);
 		txtComedor.setMargin( new Insets(5, 5, 5, 5) );
 		getContentPane().add(txtComedor);
 		
@@ -90,8 +98,15 @@ public class frm17 extends JFrame {
 		txtEscuela.setMargin( new Insets(5, 5, 5, 5) );
 		getContentPane().add(txtEscuela);
 
+		txtasilo = new JTextField();
+		txtasilo.setBounds( 130, 210, 60, 30);
+		txtasilo.setHorizontalAlignment( SwingConstants.RIGHT );
+		txtasilo.setFocusable(false);
+		txtasilo.setMargin( new Insets(5, 5, 5, 5) );
+		getContentPane().add(txtasilo);
+
 		JButton btnCalcular = new JButton("Calcular");
-		btnCalcular.setBounds( 80, 230, 100, 30);
+		btnCalcular.setBounds( 80, 270, 100, 30);
 		btnCalcular.setMnemonic('a');
 		getContentPane().add(btnCalcular);
 
@@ -104,22 +119,17 @@ public class frm17 extends JFrame {
 	}
 
 	protected void btnCalcular_actionPerformed() {
-		int Juan = Integer.parseInt( txtDinero.getText() );
-		int Rosa = Integer.parseInt( txtessalud.getText() );
-		int Daniel = Integer.parseInt( txtComedor.getText());
-		int Danielsoles = Daniel * 3;
+		int Dinero = Integer.parseInt( txtDinero.getText() );
 
-		int total = Juan + Rosa + Danielsoles;
-		double pJuan = Juan * 100.0 / total;
-		double pRosa = Rosa * 100.0 / total;
-		double pDaniel = Danielsoles * 100 / total;
+		int essalud =  Dinero *25 / 100;
+		int comedor = Dinero * 35 / 100;
+		int escuela = Dinero * 25 / 100;
+		int asilo = Dinero - (essalud + comedor + escuela);
 
-		DecimalFormat df = new DecimalFormat( "####.##");
-		lblPessalud.setText( df.format( pJuan ) + " %" );
-		lblPComedor.setText( df.format( pRosa ) + " %" );
-		lblPEscuela.setText( df.format(pDaniel) + " %");
-		txtComedor.setText("" + Danielsoles);
-		txtEscuela.setText("" + total);
+		txtasilo.setText("" + asilo);
+		txtessalud.setText("" + essalud);
+		txtComedor.setText("" + comedor);
+		txtEscuela.setText("" + escuela);
 	}
 
 }
