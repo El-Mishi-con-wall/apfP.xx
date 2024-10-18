@@ -71,9 +71,20 @@ public class frm12 extends JFrame {
 	protected void btnCalcular_actionPerformed() {
 		int Numero = Integer.parseInt(txtdia.getText());
 
-		if (Numero > 0 ) txtsigno.setText("positivo");
-		else if (Numero == 0) txtsigno.setText("cero");
-		else txtsigno.setText("negativo"); 
+		String[] aDias = {"lunes", "Martes", "Miercoles", "Jueves", "Viernes", "sabado", "domingo"};
+		if (Numero >= 1 && Numero <= 7)
+		txtdia.setText(aDias[Numero - 1]);
+		else txtdia.setText("Error");
+
+		//if (Numero == 1 ) txtdia.setText("lunes");
+		//else if (Numero == 2) txtsigno.setText("Martes");
+		//else if (Numero == 3) txtsigno.setText("Miercoles");
+		//else if (Numero == 4) txtsigno.setText("Jueves");
+		//else if (Numero == 5) txtsigno.setText("Viernes");
+		//else if (Numero == 6) txtsigno.setText("Sabado");
+		//else if (Numero == 7) txtsigno.setText("Domingo");
+		//else txtdia.setText("Error");
+		
 			
 		
 			
