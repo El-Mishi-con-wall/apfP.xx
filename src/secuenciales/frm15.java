@@ -118,8 +118,8 @@ public class frm15 extends JFrame {
 		lblPJuan.setText( df.format( pJuan ) + " %" );
 		lblPRosa.setText( df.format( pRosa ) + " %" );
 		lblPDaniel.setText( df.format(pDaniel) + " %");
-		txtDaniel.setText(String.valueOf(Danielsoles));
-		txtTotal.setText(String.valueOf(total));
+		txtDaniel.setText("" + Danielsoles);
+		txtTotal.setText("" + total);
 	}
 
 }
